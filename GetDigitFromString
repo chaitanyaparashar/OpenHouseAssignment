@@ -1,0 +1,39 @@
+class Main {
+  public static void main(String[] args) {
+    System.out.println(stringToNumber("abc43"));
+  }
+
+  public static String stringToNumber(String source) {
+    boolean isNumberFound = false;
+    boolean isNumberSignDecided = false;
+    StringBuilder result = new StringBuilder(100);
+    for(int i = 0; i < source.toCharArray().length; i++){
+      char tempNum = source.toCharArray()[i];
+      // check first char, if first character is sign we will check char for number. 
+      if(i == 0){
+        if(source.toCharArray()[i] == ('-')){
+          result.append(tempNum);
+          isNumberSignDecided = true;
+        }else if(tempNum >= '0' && tempNum <= '9'){
+          isNumberFound = true;
+          result.append(tempNum);
+        }else{
+          return "0";
+        }
+      } else if(i == 1 && isNumberSignDecided){
+        // once we decided the sign of resultant number we will look for number now.
+        if(tempNum >= '0' && tempNum <= '9'){
+            result.append(tempNum);
+            isNumberFound = true;
+        }else{
+          return "0";
+        }
+      } else{
+        if(isNumberFound && tempNum >= '0' && tempNum <= '9'){
+            result.append(tempNum);
+        }
+      } 
+    }
+    return result.toString();
+    }
+}
