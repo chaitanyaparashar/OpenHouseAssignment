@@ -1,0 +1,11 @@
+<button id="btn-0" onClick="handleClick(this.id)">Button 1</button>
+<button id="btn-1" onClick="handleClick(this.id)">Button 2</button>
+<button id="btn-2" onClick="handleClick(this.id)">Button 3</button> 
+<script type="text/javascript"> 
+
+function handleClick(clickedId) 
+  { 
+   alert(clickedId);
+  }
+  
+</script>
